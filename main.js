@@ -47,3 +47,33 @@ creararray(arrayusuario);
 console.log(palabra_elegida.split(""));
 
 console.log(guiones);
+
+
+// VENTANA HIJO DIBUJO
+function nuevaImagen(){
+    let hija
+    let errores = 0;
+    
+    switch (errores){
+        case 0:
+            img = ;
+            break;
+        case 1:
+            img = ;
+            break;
+        case 2:
+            img = ;
+            break;
+        case 3:
+            img = ;
+            break;
+        case 4:
+            img = ;
+            break;
+        case 5:
+            img = ;
+            break;
+    }
+    
+    }
+}
