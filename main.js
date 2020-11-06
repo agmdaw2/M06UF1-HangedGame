@@ -3,6 +3,8 @@ var promptuser = prompt("Introduce las palabras a adivinar");
 var arrayusuario = promptuser.split(",");
 
 
+
+
 function randomitem(arrayusuario) {
     return arrayusuario[Math.floor(Math.random() * arrayusuario.length)];
 }
@@ -45,4 +47,3 @@ creararray(arrayusuario);
 console.log(palabra_elegida.split(""));
 
 console.log(guiones);
-
