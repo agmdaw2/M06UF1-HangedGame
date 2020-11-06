@@ -3,24 +3,23 @@ var promptuser = prompt("Introduce las palabras a adivinar");
 var arrayusuario = promptuser.split(",");
 
 
-function randomitem(arrayusuario){
-    return arrayusuario[Math.floor(Math.random() *arrayusuario.length)];
+function randomitem(arrayusuario) {
+    return arrayusuario[Math.floor(Math.random() * arrayusuario.length)];
 }
 
-function creararray(arrayusuario){
-    if(arrayusuario == null || arrayusuario == "") {
-        arrayusuario = ["coco","casa","manzana","pera","piña"];
+function creararray(arrayusuario) {
+    if (arrayusuario == null || arrayusuario == "") {
+        arrayusuario = ["coco", "casa", "manzana", "pera", "piña"];
     }
     console.log(arrayusuario);
 }
 
-function guiones(palabra_elegida){
-    for (var i = 0; i > palabra_elegida.length; i++){
-
+function guiones(palabra_elegida) {
+    for (var i = 0; i > palabra_elegida.length; i++) {
     }
 }
 
-function guiones(palabra_elegida){
+function guiones(palabra_elegida) {
     const n = palabra_elegida.length;
     var guiones = [];
 
