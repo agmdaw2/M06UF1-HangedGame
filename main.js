@@ -43,37 +43,46 @@ var palabra_elegida = randomitem(arrayusuario);
 
 creararray(arrayusuario);
 
-
 console.log(palabra_elegida.split(""));
 
 console.log(guiones);
 
 
+
 // VENTANA HIJO DIBUJO
+var errores = 0;
+let dibujos;
+
+function PruebaErrorCambioImagen(){
+    errores += 1;
+}
+
 function nuevaImagen(){
-    let hija
-    let errores = 0;
+    
     
     switch (errores){
         case 0:
-            img = ;
+            dibujos.window.document.getElementById("imagenAhorcado").src = "0fallos.png";
             break;
         case 1:
-            img = ;
+            dibujos.window.document.getElementById("imagenAhorcado").src = "1fallos.png";
             break;
         case 2:
-            img = ;
+            dibujos.window.document.getElementById("imagenAhorcado").src = "2fallos.png";
             break;
         case 3:
-            img = ;
+            dibujos.window.document.getElementById("imagenAhorcado").src = "3fallos.png";
             break;
         case 4:
-            img = ;
+            dibujos.window.document.getElementById("imagenAhorcado").src = "4fallos.png";
             break;
         case 5:
-            img = ;
+            dibujos.window.document.getElementById("imagenAhorcado").src = "5fallos.png";
+            break;
+        default:
+            dibujos.window.document.getElementById("imagenAhorcado").src = "0fallos.png";
             break;
     }
-    
-    }
+  
 }
+
