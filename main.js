@@ -46,11 +46,16 @@ function comprobar(letra){
 }
 
 function Iniciar(){
-    window.open("dibujos.html", "", "width=800px,height=400px,top=80px,left=800px");
-    window.open("estadopalabra.html", "", "width=800px,height=400px,top=80px,left=800px");
+    dibujos = window.open("dibujos.html", "", "width=800px,height=400px,top=80px,left=800px");
+    estadopalabra = window.open("estadopalabra.html", "", "width=800px,height=400px,top=80px,left=800px");
     window.open("estadisticas.html", "", "width=800px,height=400px,top=80px,left=800px");
 }
 
+function Reiniciar(){
+	errores = 0;
+	document.getElementById("clicks").textContent = errores;
+	nuevaImagen();
+}
 
 
 var palabra_elegida = randomitem(arrayusuario);
@@ -61,7 +66,8 @@ console.log(palabra_elegida.split(""));
 
 console.log(guiones(palabra_elegida));
 
-
+// VENTANA HIJO PALABRA
+let estadopalabra;
 
 
 
@@ -71,34 +77,30 @@ let dibujos;
 
 function PruebaErrorCambioImagen(){
     errores += 1;
+    document.getElementById("clicks").textContent = errores;
+	nuevaImagen();
 }
 
 function nuevaImagen(){
-    
-    
     switch (errores){
         case 0:
-            dibujos.window.document.getElementById("imagenAhorcado").src = "0fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "0fallos.png";
             break;
         case 1:
-            dibujos.window.document.getElementById("imagenAhorcado").src = "1fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "1fallos.png";
             break;
         case 2:
-            dibujos.window.document.getElementById("imagenAhorcado").src = "2fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "2fallos.png";
             break;
         case 3:
-            dibujos.window.document.getElementById("imagenAhorcado").src = "3fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "3fallos.png";
             break;
         case 4:
-            dibujos.window.document.getElementById("imagenAhorcado").src = "4fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "4fallos.png";
             break;
         case 5:
-            dibujos.window.document.getElementById("imagenAhorcado").src = "5fallos.png";
-            break;
-        default:
-            dibujos.window.document.getElementById("imagenAhorcado").src = "0fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "5fallos.png";
+            setTimeout(function(){dibujos.document.getElementById("imagenAhorcado").src = "5fallosGO.png"}, 1000);
             break;
     }
-  
 }
-
