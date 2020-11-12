@@ -30,7 +30,19 @@ function guiones(palabra_elegida) {
     for(i = 0; n > i; i++){
         guiones[i] = "_";
     }
-    console.log(guiones);
+    document.write(guiones);
+}
+
+   
+function cambiarporletra(){
+    // cambiar guión por
+}
+
+function comprobar(letra){
+    if (palabra_elegida.includes(letra) ){
+        cambiarporletra();   
+    }
+    else errores += 1;
 }
 
 function Iniciar(){
@@ -39,13 +51,17 @@ function Iniciar(){
     window.open("estadisticas.html", "", "width=800px,height=400px,top=80px,left=800px");
 }
 
+
+
 var palabra_elegida = randomitem(arrayusuario);
 
 creararray(arrayusuario);
 
 console.log(palabra_elegida.split(""));
 
-console.log(guiones);
+console.log(guiones(palabra_elegida));
+
+
 
 
 
