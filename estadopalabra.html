@@ -11,17 +11,44 @@
         <div>  
             <button onclick="PruebaPalabra()">PalabraArray</button>
             <button onclick="PruebaPalabra2()">Palabraeasy</button>
+            
+            <button onclick="pruebapalabrilla()">Palabrilla</button>
         </div> 
+    
         <div> 
             <form id="formletra">
             <input id="letrilla" type="text" placeholder="Dame una letra Porfavor" > 
             <input name="enviar" type="submit" value="enviar">
             </form>
         </div>
-        <div>
-            <a id="palabrita"></a>
+    
+        <div id="palabrita"> Asereje </div>
+        <div >
             <a id="palabritaprueba"></a>
         </div>
-    <script src="main.js"></script>
+    
+    <script >
+
+        let palabrilla = "pepitogrillo";
+        let arrpalabra = palabrilla.match(/.{1}/g);
+        
+        function pruebapalabrilla(){
+            document.getElementById("palabrita").innerHTML = JSON.stringify(arrpalabra);
+        }
+        
+        
+//        function pruebapalabrilla(){
+//            document.getElementById("palabrita").innerHTML = arrpalabra[0];;
+//        }
+        
+//        function PruebaPalabra2(){
+//            let newletra;
+//            for ( var i = 0, i < palabrilla.length, i++){
+//                arrpalabra[i] = newletra;
+//                document.getElementbyId("palabritaprueba").innerText = newletra;
+//            }
+//        }     
+    
+    </script>
 </body>
 </html>

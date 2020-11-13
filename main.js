@@ -77,6 +77,7 @@ let arrpalabra = palabrilla.match(/.{1}/g);
 
 function PruebaPalabra2(){
     for ( var i = 0, i < palabrilla.length, i++){
+        document.write(typeof(arrpalabra[i]) + " ");
         estadopalabra.document.getElementbyId("palabritaprueba").innerText = arrpalabra[i];
     }
 }    
