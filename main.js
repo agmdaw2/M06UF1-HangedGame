@@ -66,16 +66,33 @@ console.log(palabra_elegida.split(""));
 
 console.log(guiones(palabra_elegida));
 
+
+//var texto = "holacomoestás";
+//console.log(texto.match(/.{1,4}/g));
+
 // VENTANA HIJO PALABRA
 let estadopalabra;
+let palabrilla = "pepitogrillo";
+let arrpalabra = palabrilla.match(/.{1}/g);
 
+function PruebaPalabra2(){
+    for ( var i = 0, i < palabrilla.length, i++){
+        estadopalabra.document.getElementbyId("palabritaprueba").innerText = arrpalabra[i];
+    }
+}    
+function PruebaPalabra(){
+    for ( let i = 0, i<palabra_elegida.length, i++){
+        estadopalabra.document.getElementbyId("palabrita").innerText = arrpalabra[i];
 
+    }
+}
+    
 
 // VENTANA HIJO DIBUJO
 var errores = 0;
 let dibujos;
 
-function PruebaErrorCambioImagen(){
+function Prueba(){
     errores += 1;
     document.getElementById("clicks").textContent = errores;
 	nuevaImagen();
