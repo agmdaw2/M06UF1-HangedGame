@@ -13,6 +13,7 @@
             <button onclick="PruebaPalabra2()">Palabraeasy</button>
             
             <button onclick="pruebapalabrilla()">Palabrilla</button>
+            <button onclick="letraqueentra()">Letraquehaentrado</button>
         </div> 
     
         <div> 
@@ -24,18 +25,27 @@
     
         <div id="palabrita"> Asereje </div>
         <div >
-            <a id="palabritaprueba"></a>
+            <a id="letradada"></a>
         </div>
     
     <script >
 
-        let palabrilla = "pepitogrillo";
+        let palabrilla = "pepito";
         let arrpalabra = palabrilla.match(/.{1}/g);
         
         function pruebapalabrilla(){
-            document.getElementById("palabrita").innerHTML = JSON.stringify(arrpalabra);
+            for(var i = 0; i < palabrilla.length; i++){
+                arrpalabra[i] = "_";
+            }
+            document.getElementById("palabrita").innerHTML = arrpalabra.toString();
         }
         
+        function letraqueentra(){
+            let letra = document.getElementById("formletra").submit();
+        
+            document.getElementById("letradada").innerHTML = letra.toString();
+        }
+
         
 //        function pruebapalabrilla(){
 //            document.getElementById("palabrita").innerHTML = arrpalabra[0];;

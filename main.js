@@ -67,13 +67,12 @@ console.log(palabra_elegida.split(""));
 console.log(guiones(palabra_elegida));
 
 
-//var texto = "holacomoestás";
-//console.log(texto.match(/.{1,4}/g));
-
 // VENTANA HIJO PALABRA
 let estadopalabra;
 let palabrilla = "pepitogrillo";
 let arrpalabra = palabrilla.match(/.{1}/g);
+
+function
 
 function PruebaPalabra2(){
     for ( var i = 0, i < palabrilla.length, i++){
