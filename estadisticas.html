@@ -8,10 +8,147 @@
 </head>
 <body>
     <h1>Estadisticas</h1>  
-
+        <div>  
+            <button type="button" id="verTodas">Ver todas las cookies</button>
+            <button type="button" id="crearCookie">Crear cookie</button>
+            <button type="button" id="modificarCookie">Modificar cookie</button>
+            <button type="button" id="leerCookie">Leer cookie</button>
+            <button type="button" id="borrarCookie">Borrar cookie</button>
+        </div>
+    
+        <div>
+            <button onclick="PruebaGanar()">Ganar</button>
+            <button onclick="PruebaPerder()">Perder</button>
+            <button onclick="PruebaAbandonar()">Abandonar</button>
+        </div>
+    
+        <div>
+            <p>Total de partidas: <span id="totpartidas">0</span></p>
+            <p>Partidas Ganadas: <span id="partganadas">0</span>%</p>
+            <p>Partidas Perdidas: <span id="partperdidas">0</span>%</p>
+            <p>Partidas Abandonadas: <span id="partabandonadas">0</span>%</p>
+        </div>
+    
     <script>
-
-
+        
+// GESTION COOKIES
+        // crear Cookie    
+        function setCookie(cname, cvalue, exdays) {
+          var d = new Date();
+          d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+          var expires = "expires="+d.toUTCString();
+          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        // Obtener Cookie  
+        function getCookie(cname) {
+          var name = cname + "=";
+          var ca = document.cookie.split(';');
+          for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+              c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+          return "";
+        }
+        //Comprobar Cookie si existe
+        function checkCookie(cname) {
+            var username=getCookie(cname);
+            if (username!="") {
+                alert("Bienvenido " + username);
+            } else {
+                username = prompt("Por favor escribe tu nombre:", "");
+                if (username != "" && username != null) {
+                    setCookie("username", username, 365);
+                }
+            }
+        }
+   
+        
+//STATS
+        
+        let totalpartidas = 0;
+        let partidasganadas = 0;
+        let partidasperdidas = 0;
+        let partidasabandonadas = 0;
+        let porcentajeganadas = 0;
+        let porcentajeabandonos = 0;
+        let porcentajeperdidas = 0;
+        
+        //document.getElementbyId("palabritaprueba").innerText = totalpartidas;
+        
+        // Calculo
+        function Calcular(){
+            porcentajeganadas = ((partidasganadas / totalpartidas)*100);
+            porcentajeabandonos = ((partidasabandonadas / totalpartidas)*100);
+            porcentajeperdidas = ((partidasperdidas / totalpartidas)*100);
+        }
+        
+        function MostrarPorcentajes(){
+            document.getElementById("totpartidas").innerText = totalpartidas;
+            document.getElementById("partganadas").innerText = porcentajeganadas;
+            document.getElementById("partperdidas").innerText = porcentajeperdidas;
+            document.getElementById("partabandonadas").innerText = porcentajeabandonos;
+        }
+        
+        //ganadas
+        function PruebaGanar(){
+            totalpartidas += 1;
+            partidasganadas += 1;
+            Calcular();
+            MostrarPorcentajes();
+        }
+        
+        //abandonos
+         function PruebaAbandonar(){
+            totalpartidas += 1;
+            partidasabandonadas += 1;
+            Calcular();
+            MostrarPorcentajes();
+        }
+        
+        //perdidas
+         function PruebaPerder(){
+            totalpartidas += 1;
+            partidasperdidas += 1;
+            Calcular();
+            MostrarPorcentajes();
+        }
+        
+        
+// PRUEBAS CON BOTONES                
+        // Ver Cookie
+        function verCookies(){
+            alert("Cookies actuales:\n" + document.cookie);
+        }
+        // CREAR COOKIE CON PROMPT
+        function crearModifCookie(){
+            var cname = prompt("Introduzca el nombre de la cookie");
+            var cvalue = prompt("Introduzca su valor");
+            var exdays = parseInt(prompt("Introduzca el numero de dias para que expire"));
+            setCookie(cname, cvalue, exdays);
+            verCookies();
+        }
+        // LEER COOKIE CON PROMPT
+        function leerCookie(){
+            var cname = prompt("Introduzca el nombre de la cookie a consultar");
+            alert(getCookie(cname));
+        }
+        // BORRAR COOKIE CON PROMPT
+        function borrarCookie(){
+            var cname = prompt("Introduce el nombre de la cookie a borrar");
+            setCookie(cname,"",0);
+        }
+        
+        document.getElementById("verTodas").addEventListener("click", verCookies);
+        document.getElementById("crearCookie").addEventListener("click", crearModifCookie);
+        document.getElementById("modificarCookie").addEventListener("click", crearModifCookie);
+        document.getElementById("leerCookie").addEventListener("click", leerCookie);
+        document.getElementById("borrarCookie").addEventListener("click", borrarCookie);
+        
     </script>
 </body>
 </html>

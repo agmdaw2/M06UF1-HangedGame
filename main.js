@@ -72,16 +72,15 @@ let estadopalabra;
 let palabrilla = "pepitogrillo";
 let arrpalabra = palabrilla.match(/.{1}/g);
 
-function
 
 function PruebaPalabra2(){
-    for ( var i = 0, i < palabrilla.length, i++){
+    for ( var i = 0; i < palabrilla.length; i++){
         document.write(typeof(arrpalabra[i]) + " ");
         estadopalabra.document.getElementbyId("palabritaprueba").innerText = arrpalabra[i];
     }
 }    
 function PruebaPalabra(){
-    for ( let i = 0, i<palabra_elegida.length, i++){
+    for ( let i = 0; i<palabra_elegida.length; i++){
         estadopalabra.document.getElementbyId("palabrita").innerText = arrpalabra[i];
 
     }
