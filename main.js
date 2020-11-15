@@ -7,7 +7,7 @@ var palabra_elegida;
 var palabra_split;
 var guiones_split;
 let arrayusuario = prompt("Introduce las palabras a adivinar, Ej: pepe,antonio,maria. Sino dale a aceptar"); 
-console.log(1 + " " + arrayusuario);
+//console.log(1 + " " + arrayusuario);
 
 function Iniciar(){
     dibujos = window.open("dibujos.html", "", "width=800px,height=400px,top=80px,left=800px");
@@ -18,27 +18,27 @@ function Iniciar(){
 }
 
 function continuacionInicio(){
-    console.log(2 + " " + arrayusuario);
+    //console.log(2 + " " + arrayusuario);
     palabra_elegida = randomitem(arrayusuario);
-    console.log(3 + " " + palabra_elegida);
+    //console.log(3 + " " + palabra_elegida);
     palabra_split = palabra_elegida.split("");
-    console.log(4 + " " + palabra_split);
+    //console.log(4 + " " + palabra_split);
     guiones_split = palabra_elegida.split("");
-    console.log(5 + " " + palabra_split);
+    //console.log(5 + " " + palabra_split);
     setTimeout(guiones, 1000);
     setTimeout(llamarCookies, 1000);
 }
 
 function Abandonar(){
     Cabandonar();
-    Reiniciar();
+    setTimeout(Reiniciar, 4000);
 }
 
 function Reiniciar(){
 	errores = 0;
     similitud = 0;
+    continuacionInicio();
     nuevaImagen();
-    setTimeout(continuacionInicio, 3000);
 }
 
 function randomitem(arrayusuario) {
@@ -54,13 +54,13 @@ function guiones(){
     for(var i = 0; i < palabra_elegida.length; i++){
         guiones_split[i] = "_";
     }
-    console.log(6 + " " + guiones_split);
+    //console.log(6 + " " + guiones_split);
     estadopalabra.document.getElementById("palabra").innerHTML = guiones_split.toString();
 }
 
 function dimeunaletra() {
     var letraprompt = prompt("introduce la letra");
-    console.log(7 + " " + letraprompt);
+    //console.log(7 + " " + letraprompt);
     comparalaletra(letraprompt);
 }
 
@@ -82,12 +82,12 @@ function comparalaletra(letraprompt){
     }else if(similitud == palabra_elegida.length){
         dibujos.document.getElementById("imagenAhorcado").src = "win.png";
         Cganar();
-        Reiniciar();
+        setTimeout(Reiniciar, 4000);
     }
         
     estadopalabra.document.getElementById("palabra").innerHTML = guiones_split.toString();
-    console.log(20+ " " + similitud)
-    console.log(21+ " " + palabra_elegida.length)
+    //console.log(20+ " " + similitud)
+    //console.log(21+ " " + palabra_elegida.length)
 }
 
 
@@ -113,14 +113,14 @@ function nuevaImagen(){
             dibujos.document.getElementById("imagenAhorcado").src = "5fallos.png";
             setTimeout(function(){dibujos.document.getElementById("imagenAhorcado").src = "5fallosGO.png"}, 1000);
             Cperder();
-            Reiniciar();
+            setTimeout(Reiniciar, 4000);
             break;
     }
 }
 
 
 //VENTANA STATS
-        
+ 
 let totalgame = 0;
 let gwin = 0;
 let glose = 0;
