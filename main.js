@@ -32,7 +32,7 @@ function continuacionInicio(){
 // Boton Abandonar
 function Abandonar(){
     Cabandonar();
-    setTimeout(Reiniciar, 4000);
+    setTimeout(Reiniciar, 5000);
 }
 
 // reiniciar el juego
@@ -118,7 +118,7 @@ function nuevaImagen(){
             dibujos.document.getElementById("imagenAhorcado").src = "imagenes/5fallos.png";
             setTimeout(function(){dibujos.document.getElementById("imagenAhorcado").src = "imagenes/5fallosGO.png"}, 1000);
             Cperder();
-            setTimeout(Reiniciar, 4000);
+            setTimeout(Reiniciar, 10000);
             break;
     }
 }
