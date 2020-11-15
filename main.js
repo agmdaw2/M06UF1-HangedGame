@@ -25,16 +25,20 @@ function continuacionInicio(){
     console.log(4 + " " + palabra_split);
     guiones_split = palabra_elegida.split("");
     console.log(5 + " " + palabra_split);
-    setTimeout(guiones, 2000);
-    setTimeout(llamarCookies, 2000);
+    setTimeout(guiones, 1000);
+    setTimeout(llamarCookies, 1000);
+}
+
+function Abandonar(){
+    Cabandonar();
+    Reiniciar();
 }
 
 function Reiniciar(){
 	errores = 0;
     similitud = 0;
     nuevaImagen();
-    Cabandonar();
-    setTimeout(continuacionInicio, 2000);
+    setTimeout(continuacionInicio, 3000);
 }
 
 function randomitem(arrayusuario) {
@@ -78,7 +82,7 @@ function comparalaletra(letraprompt){
     }else if(similitud == palabra_elegida.length){
         dibujos.document.getElementById("imagenAhorcado").src = "win.png";
         Cganar();
-        
+        Reiniciar();
     }
         
     estadopalabra.document.getElementById("palabra").innerHTML = guiones_split.toString();
@@ -109,6 +113,7 @@ function nuevaImagen(){
             dibujos.document.getElementById("imagenAhorcado").src = "5fallos.png";
             setTimeout(function(){dibujos.document.getElementById("imagenAhorcado").src = "5fallosGO.png"}, 1000);
             Cperder();
+            Reiniciar();
             break;
     }
 }
@@ -150,9 +155,9 @@ function getCookie(cname) {
 function checkCookie(cname) {
     var namecookie=getCookie(cname);
     if (namecookie != "") {
-        gwin = getCookie("ganadas");
-        glose = getCookie("perdidas");
-        gabandon = getCookie("abandonos");
+        gwin = parseInt(getCookie("ganadas"));
+        glose = parseInt(getCookie("perdidas"));
+        gabandon = parseInt(getCookie("abandonos"));
     } else {
         setCookie("ganadas", gwin, 1);
         setCookie("perdidas", glose, 1);
