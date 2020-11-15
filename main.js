@@ -11,9 +11,9 @@ let arrayusuario = prompt("Introduce las palabras a adivinar, Ej: pepe,antonio,m
 
 //Boton Inicio para Abrir las ventanas hijo y iniciar seleccion de palabra
 function Iniciar(){
-    dibujos = window.open("dibujos.html", "", "width=500px,height=500px,top=400px,left=40px");
-    estadopalabra = window.open("estadopalabra.html", "", "width=260px,height=130px,top=50px,left=40px");
-    estadisticas = window.open("estadisticas.html", "", "width=320px,height=190px,top=50px,left=400px"); 
+    dibujos = window.open("dibujos.html", "","width=400px,height=400px,top=100px,left=1200px" );
+    estadopalabra = window.open("estadopalabra.html", "", "width=350px,height=200px, top=100px"  );
+    estadisticas = window.open("estadisticas.html", "", "width=200px,height=200px, top=500px"); 
     arrayusuario = arrayusuario.split(",");
     continuacionInicio();
 }

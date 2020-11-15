@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>Proyecto Oscar y Antonio</title>
 </head>
 <body>
-    
+    <div id="divh1">
+        <h1> El Juego del ahorcado </h1>
+    </div>
+
     <div id="ContenedorPagprincipal">    
         <div id="menuPrincipal">
-            <button class="BotonPersonalizado" onclick="Iniciar()"> Iniciar </button>
-            <button class="BotonPersonalizado" onclick="Abandonar()"> Abandonar </button>
+            <button id="inciciar" class="glow-on-hover" onclick="Iniciar()"> Iniciar </button>
+            <button id="Reiniciar" class="glow-on-hover"  onclick="Abandonar()"> Abandonar </button>
         </div>        
         
         <div id="contenedorTextoPagprincipal">
-            <h2>Juego del Ahorcado</h2>  
              <div>  
-                <button onclick="dimeunaletra()"> Introduce una letra Pulsando aquí </button>
+                <button id="introduceletra" class="glow-on-hover" onclick="dimeunaletra()"> Introduce una letra Pulsando aquí </button>
              </div>
         </div>
     </div>
