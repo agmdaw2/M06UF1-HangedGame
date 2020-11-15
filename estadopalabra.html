@@ -17,6 +17,7 @@
         </div> 
     
         <div> 
+            <button onclick="dimeunaletra()"> Introduce una letra Pulsando aquí </button>
             <form id="formletra">
             <input id="letrilla" type="text" placeholder="Dame una letra Porfavor" > 
             <input name="enviar" type="submit" value="enviar">
@@ -57,7 +58,11 @@
 //                arrpalabra[i] = newletra;
 //                document.getElementbyId("palabritaprueba").innerText = newletra;
 //            }
-//        }     
+//        }
+        function dimeunaletra() {
+            var letraprompt = prompt("introduce la letra");
+            console.log(letraprompt);
+        }
     
     </script>
 </body>

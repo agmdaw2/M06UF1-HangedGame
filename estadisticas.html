@@ -32,12 +32,22 @@
     <script>
         
 // GESTION COOKIES
+        //STATS
+        
+        let totalpartidas = 0;
+        let partidasganadas = 0;
+        let partidasperdidas = 0;
+        let partidasabandonadas = 0;
+        let porcentajeganadas = 0;
+        let porcentajeabandonos = 0;
+        let porcentajeperdidas = 0;
+    
         // crear Cookie    
         function setCookie(cname, cvalue, exdays) {
           var d = new Date();
           d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
           var expires = "expires="+d.toUTCString();
-          document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+          document.cookie = cname + "=" + cvalue + ";" + expires;
         }
         // Obtener Cookie  
         function getCookie(cname) {
@@ -68,17 +78,6 @@
         }
    
         
-//STATS
-        
-        let totalpartidas = 0;
-        let partidasganadas = 0;
-        let partidasperdidas = 0;
-        let partidasabandonadas = 0;
-        let porcentajeganadas = 0;
-        let porcentajeabandonos = 0;
-        let porcentajeperdidas = 0;
-        
-        //document.getElementbyId("palabritaprueba").innerText = totalpartidas;
         
         // Calculo
         function Calcular(){
@@ -100,6 +99,8 @@
             partidasganadas += 1;
             Calcular();
             MostrarPorcentajes();
+            
+            setCookie("total", totalpartidas, 1);
         }
         
         //abandonos

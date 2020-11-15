@@ -1,3 +1,6 @@
+var errores = 0;
+let dibujos;
+
 //Parte Oscar 
 var promptuser = prompt("Introduce las palabras a adivinar");  
 var arrayusuario = promptuser.split(",");
@@ -88,8 +91,6 @@ function PruebaPalabra(){
     
 
 // VENTANA HIJO DIBUJO
-var errores = 0;
-let dibujos;
 
 function Prueba(){
     errores += 1;
