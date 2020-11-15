@@ -9,14 +9,14 @@ var guiones_split;
 let arrayusuario = prompt("Introduce las palabras a adivinar, Ej: pepe,antonio,maria. Sino dale a aceptar"); 
 //console.log(1 + " " + arrayusuario);
 
+//Boton Inicio para Abrir las ventanas hijo y iniciar seleccion de palabra
 function Iniciar(){
-    dibujos = window.open("dibujos.html", "", "width=800px,height=400px,top=80px,left=800px");
-    estadopalabra = window.open("estadopalabra.html", "", "width=800px,height=400px,top=80px,left=800px");
-    estadisticas = window.open("estadisticas.html", "", "width=800px,height=400px,top=80px,left=800px"); 
+    dibujos = window.open("dibujos.html", "", "width=500px,height=500px,top=400px,left=40px");
+    estadopalabra = window.open("estadopalabra.html", "", "width=260px,height=130px,top=50px,left=40px");
+    estadisticas = window.open("estadisticas.html", "", "width=320px,height=190px,top=50px,left=400px"); 
     arrayusuario = arrayusuario.split(",");
     continuacionInicio();
 }
-
 function continuacionInicio(){
     //console.log(2 + " " + arrayusuario);
     palabra_elegida = randomitem(arrayusuario);
@@ -29,11 +29,13 @@ function continuacionInicio(){
     setTimeout(llamarCookies, 1000);
 }
 
+// Boton Abandonar
 function Abandonar(){
     Cabandonar();
     setTimeout(Reiniciar, 4000);
 }
 
+// reiniciar el juego
 function Reiniciar(){
 	errores = 0;
     similitud = 0;
@@ -41,6 +43,7 @@ function Reiniciar(){
     nuevaImagen();
 }
 
+// escoge una palabra de un array si la hay y sino utiliza una de la base
 function randomitem(arrayusuario) {
     if(arrayusuario == null || arrayusuario == "") {
         arrayusuario = ["coco", "casa", "manzana", "pera", "piña"];
@@ -50,6 +53,7 @@ function randomitem(arrayusuario) {
 
 
 // VENTANA HIJO PALABRA
+    //cambia el array por guiones
 function guiones(){
     for(var i = 0; i < palabra_elegida.length; i++){
         guiones_split[i] = "_";
@@ -57,13 +61,13 @@ function guiones(){
     //console.log(6 + " " + guiones_split);
     estadopalabra.document.getElementById("palabra").innerHTML = guiones_split.toString();
 }
-
+    // prompt de dar letras
 function dimeunaletra() {
     var letraprompt = prompt("introduce la letra");
     //console.log(7 + " " + letraprompt);
     comparalaletra(letraprompt);
 }
-
+    // verifica si la letra esta, cambia la letra por el guion y si aciertas todas muestra el win
 function comparalaletra(letraprompt){
     let i;
     let coincidencia = 0;
@@ -80,7 +84,7 @@ function comparalaletra(letraprompt){
         errores += 1;
         nuevaImagen();
     }else if(similitud == palabra_elegida.length){
-        dibujos.document.getElementById("imagenAhorcado").src = "win.png";
+        dibujos.document.getElementById("imagenAhorcado").src = "imagenes/win.png";
         Cganar();
         setTimeout(Reiniciar, 4000);
     }
@@ -92,26 +96,27 @@ function comparalaletra(letraprompt){
 
 
 // VENTANA HIJO DIBUJO
+    //cambia la imagen segun la cantidad de errores y si has perdido
 function nuevaImagen(){
      switch (errores){
         case 0:
-            dibujos.document.getElementById("imagenAhorcado").src = "0fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "imagenes/0fallos.png";
             break;
         case 1:
-            dibujos.document.getElementById("imagenAhorcado").src = "1fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "imagenes/1fallos.png";
             break;
         case 2:
-            dibujos.document.getElementById("imagenAhorcado").src = "2fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "imagenes/2fallos.png";
             break;
         case 3:
-            dibujos.document.getElementById("imagenAhorcado").src = "3fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "imagenes/3fallos.png";
             break;
         case 4:
-            dibujos.document.getElementById("imagenAhorcado").src = "4fallos.png";
+            dibujos.document.getElementById("imagenAhorcado").src = "imagenes/4fallos.png";
             break;
         case 5:
-            dibujos.document.getElementById("imagenAhorcado").src = "5fallos.png";
-            setTimeout(function(){dibujos.document.getElementById("imagenAhorcado").src = "5fallosGO.png"}, 1000);
+            dibujos.document.getElementById("imagenAhorcado").src = "imagenes/5fallos.png";
+            setTimeout(function(){dibujos.document.getElementById("imagenAhorcado").src = "imagenes/5fallosGO.png"}, 1000);
             Cperder();
             setTimeout(Reiniciar, 4000);
             break;
@@ -120,7 +125,6 @@ function nuevaImagen(){
 
 
 //VENTANA STATS
- 
 let totalgame = 0;
 let gwin = 0;
 let glose = 0;
@@ -166,7 +170,7 @@ function checkCookie(cname) {
     
     calcular();
 }
-
+//realiza un check de si existe "ganadas" y si existen los coje.
 function llamarCookies(){
     checkCookie("ganadas");
 }
@@ -174,9 +178,9 @@ function llamarCookies(){
 // Calcular %
 function calcular(){
     totalgame = gwin + glose + gabandon;
-    winpercent = ((gwin / totalgame)*100);
-    abandonpercent = ((gabandon / totalgame)*100);
-    losepercent = ((glose / totalgame)*100);
+    winpercent = (Math.round((gwin / totalgame)*100));
+    abandonpercent = (Math.round((gabandon / totalgame)*100));
+    losepercent = (Math.round((glose / totalgame)*100));
     MostrarPorcentajes();
 }
 function MostrarPorcentajes(){
