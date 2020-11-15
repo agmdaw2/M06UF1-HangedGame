@@ -8,62 +8,7 @@
 </head>
 <body>
     <h1>Palabra</h1>  
-        <div>  
-            <button onclick="PruebaPalabra()">PalabraArray</button>
-            <button onclick="PruebaPalabra2()">Palabraeasy</button>
-            
-            <button onclick="pruebapalabrilla()">Palabrilla</button>
-            <button onclick="letraqueentra()">Letraquehaentrado</button>
-        </div> 
-    
-        <div> 
-            <button onclick="dimeunaletra()"> Introduce una letra Pulsando aquí </button>
-            <form id="formletra">
-            <input id="letrilla" type="text" placeholder="Dame una letra Porfavor" > 
-            <input name="enviar" type="submit" value="enviar">
-            </form>
-        </div>
-    
-        <div id="palabrita"> Asereje </div>
-        <div >
-            <a id="letradada"></a>
-        </div>
-    
-    <script >
-
-        let palabrilla = "pepito";
-        let arrpalabra = palabrilla.match(/.{1}/g);
-        
-        function pruebapalabrilla(){
-            for(var i = 0; i < palabrilla.length; i++){
-                arrpalabra[i] = "_";
-            }
-            document.getElementById("palabrita").innerHTML = arrpalabra.toString();
-        }
-        
-        function letraqueentra(){
-            let letra = document.getElementById("formletra").submit();
-        
-            document.getElementById("letradada").innerHTML = letra.toString();
-        }
-
-        
-//        function pruebapalabrilla(){
-//            document.getElementById("palabrita").innerHTML = arrpalabra[0];;
-//        }
-        
-//        function PruebaPalabra2(){
-//            let newletra;
-//            for ( var i = 0, i < palabrilla.length, i++){
-//                arrpalabra[i] = newletra;
-//                document.getElementbyId("palabritaprueba").innerText = newletra;
-//            }
-//        }
-        function dimeunaletra() {
-            var letraprompt = prompt("introduce la letra");
-            console.log(letraprompt);
-        }
-    
-    </script>
+        <div id="palabrita">  </div>
+        <script src="main.js"></script>
 </body>
 </html>

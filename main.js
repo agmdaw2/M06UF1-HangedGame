@@ -1,39 +1,42 @@
-var errores = 0;
 let dibujos;
+let estadopalabra;
+var errores = 0;
 
 //Parte Oscar 
+
 var promptuser = prompt("Introduce las palabras a adivinar");  
-var arrayusuario = promptuser.split(",");
+var arrayusuario = promptuser;
 
-
+console.log(arrayusuario);
 
 
 function randomitem(arrayusuario) {
+    if(arrayusuario == null || arrayusuario == "") {
+        arrayusuario = ["coco", "casa", "manzana", "pera", "piña"];
+    }else{arrayusuario = promptuser.split(",");}
+    
     return arrayusuario[Math.floor(Math.random() * arrayusuario.length)];
 }
+
+console.log(palabra_elegida);
 
 function creararray(arrayusuario) {
     if (arrayusuario == null || arrayusuario == "") {
         arrayusuario = ["coco", "casa", "manzana", "pera", "piña"];
-    }
+        randomitem(arrayusuario);
+    }else {randomitem(arrayusuario);}
     console.log(arrayusuario);
 }
 
-function guiones(palabra_elegida) {
-    for (var i = 0; i > palabra_elegida.length; i++) {
-    }
-}
 
-function guiones(palabra_elegida) {
-    const n = palabra_elegida.length;
-    var guiones = [];
-
+function guiones(guiones_split) {
     console.log(palabra_elegida.length);
 
-    for(i = 0; n > i; i++){
-        guiones[i] = "_";
+    for(var i = 0; i < palabra_elegida.length; i++){
+        guiones_split[i] = "_";
     }
-    document.write(guiones);
+    estadopalabra.document.getElementById("palabrita").innerHTML = guiones_split.toString();
+    
 }
 
    
@@ -60,20 +63,50 @@ function Reiniciar(){
 	nuevaImagen();
 }
 
-
 var palabra_elegida = randomitem(arrayusuario);
+var palabra_split = palabra_elegida.split("");
+var guiones_split = palabra_elegida.split("");
 
-creararray(arrayusuario);
 
-console.log(palabra_elegida.split(""));
-
-console.log(guiones(palabra_elegida));
+//console.log(palabra_elegida.split(""));
+//console.log(guiones(palabra_elegida));
 
 
 // VENTANA HIJO PALABRA
-let estadopalabra;
-let palabrilla = "pepitogrillo";
-let arrpalabra = palabrilla.match(/.{1}/g);
+//let palabrilla = creararray(arrayusuario);
+
+        
+function pruebapalabrilla(){
+    for(var i = 0; i < palabra_elegida.length; i++){
+        arrayguiones[i] = "_";
+    }
+    estadopalabra.document.getElementById("palabrita").innerHTML = arrayguiones.toString();
+}
+
+function letraqueentra(){
+    let letra = document.getElementById("formletra").submit();
+
+    estadopalabra.document.getElementById("letradada").innerHTML = letra.toString();
+}
+
+
+function dimeunaletra() {
+    var letraprompt = prompt("introduce la letra");
+    console.log(letraprompt);
+    comparalaletra(letraprompt);
+}
+
+function comparalaletra(letra){
+    let i;
+    for (i=0; i<palabrilla.length; i++){
+        if(letra == arrpalabra[i]){
+            arrayguiones[i] = letra;
+            estadopalabra.document.getElementById("palabrita").innerHTML = arrayguiones.toString();
+        }else{errores += 1;}
+    }
+}
+
+
 
 
 function PruebaPalabra2(){
